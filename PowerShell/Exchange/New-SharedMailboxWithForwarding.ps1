@@ -11,7 +11,7 @@ $CsvPath = "C:\Temp\Exchange\mailboxes.csv"
 
 Connect-ExchangeOnline
 
-$mailboxes = Import-Csv -Path $CsvPath
+$mailboxes = Import-Csv -Path $CsvPath -Delimiter ","
 
 foreach ($entry in $mailboxes) {
     $routingName       = $entry.'Routing Name'.Trim()

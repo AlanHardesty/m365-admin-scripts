@@ -11,7 +11,7 @@ $GroupName = "ExchangeOnline Allow Email Forwarding"   # Update to match your gr
 
 Connect-ExchangeOnline
 
-$csv = Import-Csv -Path $csvPath
+$csv = Import-Csv -Path $csvPath -Delimiter ","
 
 foreach ($user in $csv) {
     try {

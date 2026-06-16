@@ -9,7 +9,7 @@ $tenantName = "contoso.onmicrosoft.com"
 $csvPath    = "C:\Temp\users.csv"
 # -----------------------
 
-$csv = Import-Csv $csvPath
+$csv = Import-Csv $csvPath -Delimiter ","
 Write-Host "CSV contains $($csv.Count) users"
 
 Connect-MgGraph -TenantId $tenantName

@@ -14,7 +14,7 @@ $csvPath    = "C:\Temp\users.csv"
 
 Connect-MgGraph -TenantId $tenantName -Scopes 'Group.Read.All','Group.ReadWrite.All','User.Read.All'
 
-$csv = Import-Csv -Path $csvPath -Delimiter ";"
+$csv = Import-Csv -Path $csvPath -Delimiter ","
 
 foreach ($user in $csv) {
     $sourceUpn = $user.SourceUpn

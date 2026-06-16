@@ -25,7 +25,7 @@ Import-Module MicrosoftTeams
 Import-Module Microsoft.Online.SharePoint.PowerShell -UseWindowsPowerShell
 Import-Module PnP.PowerShell
 
-$groupIDs = Import-Csv -Path $csvPath | Select-Object @{Name='GroupID'; Expression={$_.'GroupID'}}
+$groupIDs = Import-Csv -Path $csvPath -Delimiter "," | Select-Object @{Name='GroupID'; Expression={$_.'GroupID'}}
 Write-Host "GroupIDs read from file: $($groupIDs.Count)"
 
 Connect-MicrosoftTeams

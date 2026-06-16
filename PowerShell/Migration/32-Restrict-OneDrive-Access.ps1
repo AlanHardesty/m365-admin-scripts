@@ -19,10 +19,10 @@ Import-Module PnP.PowerShell
 Connect-SPOService -Url $adminUrl
 $pnpConnection = Connect-PnPOnline -Url $adminUrl -Interactive -ReturnConnection -ClientId $pnpClientId
 
-$csv = Import-Csv $csvPath -Delimiter ";"
+$csv = Import-Csv $csvPath -Delimiter ","
 Write-Host "CSV contains $($csv.Count) users"
 
-$excludeUsers = Import-Csv $excludeCsvPath -Delimiter ";"
+$excludeUsers = Import-Csv $excludeCsvPath -Delimiter ","
 $csv = $csv | Where-Object { $_.SourceUpn -notin $excludeUsers.SourceUpn }
 Write-Host "Excluding $($excludeUsers.Count) application accounts. Processing $($csv.Count) accounts."
 

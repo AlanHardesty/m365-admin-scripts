@@ -12,7 +12,7 @@ $reportPath     = "C:\Temp\Domain-SMTPcheck\ExchangeRecipientReferences.csv"
 
 Connect-ExchangeOnline
 
-$domains = Import-Csv -Path $domainsCsvPath | Select-Object -ExpandProperty Domain
+$domains = Import-Csv -Path $domainsCsvPath -Delimiter "," | Select-Object -ExpandProperty Domain
 
 if ($domains.Count -eq 0) {
     Write-Host "No domains found in $domainsCsvPath." -ForegroundColor Red

@@ -14,7 +14,7 @@ $csvPath = "C:\Temp\SharedMailboxes\users.csv"
 
 Connect-ExchangeOnline
 
-$mailboxes = Import-Csv -Path $csvPath
+$mailboxes = Import-Csv -Path $csvPath -Delimiter ","
 
 foreach ($mailbox in $mailboxes) {
     $upn = $mailbox.SourceUpn.Trim()

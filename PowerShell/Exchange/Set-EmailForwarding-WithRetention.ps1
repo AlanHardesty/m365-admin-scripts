@@ -12,7 +12,7 @@ $csvPath = "C:\Temp\users.csv"
 
 Connect-ExchangeOnline
 
-$emailMappings = Import-Csv -Path $csvPath
+$emailMappings = Import-Csv -Path $csvPath -Delimiter ","
 
 foreach ($mapping in $emailMappings) {
     $sourceEmail = $mapping.SourceEmail

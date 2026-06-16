@@ -10,7 +10,7 @@ $tenantName = "contoso.onmicrosoft.com"
 $csvPath    = "C:\Temp\users.csv"
 # -----------------------
 
-$CsvUsers = Import-Csv $csvPath -Delimiter ";"
+$CsvUsers = Import-Csv $csvPath -Delimiter ","
 
 Connect-MgGraph -TenantId $tenantName -Scopes "User.Read.All"
 

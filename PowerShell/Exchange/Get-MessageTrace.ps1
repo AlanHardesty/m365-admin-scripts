@@ -14,7 +14,7 @@ $DaysBack  = 10   # Get-MessageTrace supports ~10 days; Get-MessageTraceV2 suppo
 
 Connect-ExchangeOnline
 
-$Mailboxes = Import-Csv -Path $InputCsv | Select-Object -ExpandProperty MbxAddress
+$Mailboxes = Import-Csv -Path $InputCsv -Delimiter "," | Select-Object -ExpandProperty MbxAddress
 $StartDate = (Get-Date).AddDays(-$DaysBack)
 $EndDate   = Get-Date
 

@@ -19,7 +19,7 @@ Connect-ExchangeOnline
 $timestamp        = Get-Date -Format 'yyyyMMdd_HHmmss'
 $OutputSummaryCsv = "C:\Temp\Exchange\MessageTrace_Summary_$timestamp.csv"
 
-$Mailboxes = Import-Csv -Path $InputCsv | Select-Object -ExpandProperty MbxAddress
+$Mailboxes = Import-Csv -Path $InputCsv -Delimiter "," | Select-Object -ExpandProperty MbxAddress
 
 if (-not $Mailboxes -or $Mailboxes.Count -eq 0) {
     Write-Error "No addresses found in column 'MbxAddress' of $InputCsv"

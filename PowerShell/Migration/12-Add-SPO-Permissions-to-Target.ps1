@@ -24,8 +24,8 @@ Import-Module PnP.PowerShell
 Connect-MgGraph -TenantId $tenantName
 $pnpConnection = Connect-PnPOnline -Url $adminUrl -Interactive -ReturnConnection -ClientId $pnpClientId
 
-$SpoSitePermissionReport = Import-Csv $permissionsReportPath -Delimiter ";" -Encoding Unicode
-$CsvUsers = Import-Csv $csvPath -Delimiter ";"
+$SpoSitePermissionReport = Import-Csv $permissionsReportPath -Delimiter "," -Encoding Unicode
+$CsvUsers = Import-Csv $csvPath -Delimiter ","
 
 foreach ($user in $CsvUsers) {
     $sourceUpn = $user.SourceUpn

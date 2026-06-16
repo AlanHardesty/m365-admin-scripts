@@ -13,7 +13,7 @@ $migratedGroupName = "Org_Migrated_Users" # Group for completed migrations
 
 Import-Module ActiveDirectory
 
-$csv = Import-Csv $csvPath -Delimiter ";"
+$csv = Import-Csv $csvPath -Delimiter ","
 Write-Host "CSV contains $($csv.Count) users"
 
 $mtoGroup      = Get-ADGroup $mtoGroupName

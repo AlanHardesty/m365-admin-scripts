@@ -13,10 +13,10 @@ $excludeCsvPath  = "C:\Temp\ApplicationUsers.csv"  # Accounts to exclude from re
 
 Connect-ExchangeOnline
 
-$csv = Import-Csv $csvPath
+$csv = Import-Csv $csvPath -Delimiter ","
 Write-Host "CSV contains $($csv.Count) users"
 
-$excludeUsers = Import-Csv $excludeCsvPath -Delimiter ";"
+$excludeUsers = Import-Csv $excludeCsvPath -Delimiter ","
 $csv = $csv | Where-Object { $_.SourceUpn -notin $excludeUsers.SourceUpn }
 Write-Host "Excluding $($excludeUsers.Count) application accounts. Processing $($csv.Count) accounts."
 

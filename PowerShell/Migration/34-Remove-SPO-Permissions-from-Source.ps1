@@ -15,8 +15,8 @@ $permissionsReportPath = "C:\Temp\SpoSitePermissionsReport.csv"
 
 Import-Module PnP.PowerShell
 
-$SpoSitePermissionReport = Import-Csv $permissionsReportPath -Delimiter ";" -Encoding Unicode
-$CsvUsers = Import-Csv $csvPath -Delimiter ";"
+$SpoSitePermissionReport = Import-Csv $permissionsReportPath -Delimiter "," -Encoding Unicode
+$CsvUsers = Import-Csv $csvPath -Delimiter ","
 
 Connect-MgGraph -TenantId $tenantName
 $pnpConnection = Connect-PnPOnline -Url $adminUrl -Interactive -ReturnConnection -ClientId $pnpClientId

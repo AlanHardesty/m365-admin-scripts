@@ -13,7 +13,7 @@ $outputCsv = "C:\Temp\LitigationHoldStatus.csv"
 Connect-MgGraph -Scopes "User.Read.All","AuditLog.Read.All"
 Connect-ExchangeOnline
 
-$users = Import-Csv -Path $inputCsv
+$users = Import-Csv -Path $inputCsv -Delimiter ","
 
 $results = foreach ($user in $users) {
     $upn = $user.UserPrincipalName.Trim()

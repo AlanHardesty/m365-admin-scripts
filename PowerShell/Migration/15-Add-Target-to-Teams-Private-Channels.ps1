@@ -17,7 +17,7 @@ $reportPath  = "C:\Temp\TeamsPrivateChannel_Report.csv"
 $targetDomainSuffix = "targetdomain.com#EXT#@contoso.onmicrosoft.com"
 # -----------------------
 
-$CsvUsers = Import-Csv $csvPath -Delimiter ";"
+$CsvUsers = Import-Csv $csvPath -Delimiter ","
 Write-Host "$($CsvUsers.Count) users read from CSV"
 
 Connect-MgGraph -TenantId $tenantName

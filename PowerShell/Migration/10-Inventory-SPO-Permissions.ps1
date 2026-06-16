@@ -44,7 +44,7 @@ $siteCollections.count
 $siteCollections | Export-Csv C:\Temp\SPOsiteCollections.csv -Delimiter ";" -Encoding Unicode -NoTypeInformation
 
 # Re-import if already exported recently
-# $siteCollections = Import-Csv C:\Temp\SPOsiteCollections.csv -Delimiter ";"
+# $siteCollections = Import-Csv C:\Temp\SPOsiteCollections.csv -Delimiter ","
 
 # Connect PnP
 $pnpConnection = Connect-PnPOnline -Url $adminUrl -Interactive -ReturnConnection -ClientId $pnpClientId
