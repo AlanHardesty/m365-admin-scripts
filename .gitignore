@@ -1,0 +1,22 @@
+# Logs and output files
+*.log
+*.csv
+*.zip
+
+# Temp and scratch files
+Scratch.ps1
+*-test*.ps1
+*test*.ps1
+
+# Credentials and secrets
+*.json
+!.vscode/*.json
+
+# OS
+Thumbs.db
+.DS_Store
+
+# IDE
+.vs/
+.vscode/
+*.code-workspace
