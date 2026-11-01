@@ -1,48 +1,5 @@
 # M365 Admin Scripts
 
-PowerShell tooling and operational documentation for Microsoft 365 tenant-to-tenant
-migration and administration, from a post-acquisition tenant consolidation.
-
-Two things live here:
-
-- **[`RUNBOOK.md`](RUNBOOK.md)** — the four-phase tenant-to-tenant migration runbook. The
-  sequence, the reasoning, and what breaks when the order is wrong.
-- **The supporting scripts** — Exchange, SharePoint, and endpoint tooling used to make the
-  migration decisions and carry out the work.
-
-Built against the Microsoft Graph API, PnP.PowerShell, ExchangeOnlineManagement,
-MicrosoftTeams, and the SharePoint Online Management Shell.
-
----
-
-## The migration runbook
-
-**→ [Read the full runbook](RUNBOOK.md)**
-
-Moving users between tenants is not a single operation. It is a sequence of permission
-grants, coexistence changes, and source-side revocations that have to happen in the right
-order, in batches, or users lose access to things they still need.
-
-| Phase | Handles |
-|---|---|
-| **1 — Inventory and provisioning** | Enumerate existing access before changing anything, verify both identities, replicate SharePoint permissions and group membership onto the target account, handle Teams private channels separately, enable retained mail forwarding |
-| **2 — Coexistence** | Repoint mail contacts at the target tenant, auto-reply on the source mailbox so senders learn the new address |
-| **3 — Source decommissioning** | Restrict source mailbox client access, lock OneDrive, remove group and SharePoint permissions using the Phase 1 inventory — restrict access without deleting data |
-| **4 — Teams and final lockdown** | Freeze team structure, demote owners, set backing SharePoint sites read-only, close out shared mailboxes |
-
-The runbook covers the parts that are not obvious from the phase names: why the permission
-inventory has to be generated before anything changes, why private channel membership is not
-inherited from team membership, why every lockdown needs a matching unlock, and why
-provisioning and revocation never run in the same pass.
-
-> The migration implementation itself was client-specific and is not published here. The
-> runbook documents the phase structure and operational reasoning, which is the transferable
-> part.
-
----
-
-## Scripts
-
 ### [`PowerShell/Exchange/`](PowerShell/Exchange/)
 
 Exchange Online administration and reporting. The reporting scripts exist because migration
